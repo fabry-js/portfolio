@@ -1,13 +1,23 @@
 import React from 'react';
-import Home from '../pages/Home';
-
+import Routes from '../Routes';
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 interface ProvidersProps {}
 
-const Providers: React.FC<ProvidersProps> = ({children}) =>{
+const Providers: React.FC<ProvidersProps> = () =>{
+  const theme = extendTheme({
+    fonts: {
+      heading: "Cascadia Code"
+    },
+    colors: {
+      portfolio: {
+        100: "#0E050F"
+      }
+    }
+  })
   return (
-    <div>
-      <Home />
-    </div>
+    <ChakraProvider theme={theme}>
+      <Routes />
+    </ChakraProvider>
   );
 }
 
